@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "International Data Privacy Day"
-date:   2021-01-28 20:22:22 -0500
+date:   2021-01-28
 categories: jekyll update
 ---
 Today is International Data Privacy Day so I would like to take this opportunity to share some information with my fellow Internet users in hopes that it will help some of you become more knowledgeable regarding the types of data which are being harvested from your devices, for the most part without your knowledge or consent. I will try to make this as accessible as possible by using terms and concepts that a layperson can easily grasp but please feel free to comment or message me privately if you have any questions or concerns that are not covered by this post.
