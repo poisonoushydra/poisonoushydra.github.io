@@ -4,15 +4,7 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+My name is Alexander and I am a technomancer who lives in Canada. I am very passionate about music, film, literature and the arts. I enjoy discovering and exploring new technologies. I am currently actively interested in Type-1 Hypervisors and am exploring the possibility of obtaining a degree in cybersecurity.
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
-
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
+## Follow my page; 
+# Follow my journey... 
