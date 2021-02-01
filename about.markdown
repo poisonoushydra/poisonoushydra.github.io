@@ -4,4 +4,15 @@ title: About
 permalink: /about/
 ---
 
-Welcome to The Liquid Indifference Project! I started this page mostly to track my own project progress for the sake of posterity but hopefully others may find it useful as well. Stay tuned for everything from poetry to music to updates regarding personal projects I am undertaking.
+This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+
+You can find the source code for Minima at GitHub:
+[jekyll][jekyll-organization] /
+[minima](https://github.com/jekyll/minima)
+
+You can find the source code for Jekyll at GitHub:
+[jekyll][jekyll-organization] /
+[jekyll](https://github.com/jekyll/jekyll)
+
+
+[jekyll-organization]: https://github.com/jekyll
