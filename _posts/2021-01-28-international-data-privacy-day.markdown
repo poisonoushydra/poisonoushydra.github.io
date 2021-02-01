@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Welcome to The Banana!"
+title:  "International Data Privacy Day"
 date:   2021-01-28 22:22:22 -0500
 categories: jekyll update
 ---
