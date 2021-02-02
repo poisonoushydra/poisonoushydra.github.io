@@ -30,7 +30,7 @@ github_username:  poisonoushydra
 
 # Build settings
 # theme: minima
-remote_theme: benbalter/retlab
+remote_theme: mmistakes/so-simple-theme
 plugins:
   - jekyll-feed
 
