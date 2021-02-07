@@ -122,9 +122,10 @@ My current personal best is:
 | 2021-01-27    | 10856               | 9.5        |
 | 2021-01-29    | 4302                |            | 
 | 2021-01-31    | 4446                |            |
-| 2021-02-02    | 4548                |            |
+| 2021-02-01    | 4548                |            |
 | 2021-02-04    | 10309               |            |
 | 2021-02-06    | 3092                | 2.7        |
+| 2021-02-07    | 16801               | 14.8       |
 
 *Rows with data in the Kilometres column were taken from Pebble Health.* 
 

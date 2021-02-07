@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-02-07T11:23:31-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Lerna</title><subtitle>Hello and welcome to my GitHub Page! This will be an ongoing work in progress which will allow me to share my thoughts, ramblings, poetry, and any other projects I may be working on.</subtitle><entry><title type="html">Walking Journal</title><link href="http://localhost:4000/jekyll/update/2021/02/06/walking-my-worries-away.html" rel="alternate" type="text/html" title="Walking Journal" /><published>2021-02-06T00:00:00-05:00</published><updated>2021-02-06T00:00:00-05:00</updated><id>http://localhost:4000/jekyll/update/2021/02/06/walking-my-worries-away</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/02/06/walking-my-worries-away.html">&lt;h1 id=&quot;walking-journal&quot;&gt;Walking Journal&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-02-07T16:37:18-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Lerna</title><subtitle>Hello and welcome to my GitHub Page! This will be an ongoing work in progress which will allow me to share my thoughts, ramblings, poetry, and any other projects I may be working on.</subtitle><entry><title type="html">Walking Journal</title><link href="http://localhost:4000/jekyll/update/2021/02/06/walking-my-worries-away.html" rel="alternate" type="text/html" title="Walking Journal" /><published>2021-02-06T00:00:00-05:00</published><updated>2021-02-06T00:00:00-05:00</updated><id>http://localhost:4000/jekyll/update/2021/02/06/walking-my-worries-away</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/02/06/walking-my-worries-away.html">&lt;h1 id=&quot;walking-journal&quot;&gt;Walking Journal&lt;/h1&gt;
 
 &lt;p&gt;I have never been a gym person and have always found that I need to exercise organically. I recently discovered walking as a great way to stay in shape. It helps immensely with both my physical and mental health. I wanted to start journaling my progress as much as possible since my Pebble and Apple Health are not as reliable as I would like in maintaining this data over an extended period of time.&lt;/p&gt;
 
@@ -546,7 +546,7 @@
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;2021-02-02&lt;/td&gt;
+      &lt;td&gt;2021-02-01&lt;/td&gt;
       &lt;td&gt;4548&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
@@ -559,6 +559,11 @@
       &lt;td&gt;2021-02-06&lt;/td&gt;
       &lt;td&gt;3092&lt;/td&gt;
       &lt;td&gt;2.7&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2021-02-07&lt;/td&gt;
+      &lt;td&gt;16801&lt;/td&gt;
+      &lt;td&gt;14.8&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
