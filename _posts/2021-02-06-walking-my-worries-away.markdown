@@ -16,8 +16,34 @@ My current personal best is:
 
 | Date          | Steps               | Kilometres |
 | --------------|---------------------|------------|
-| 2020-10-31    | 6991                | 6.0        |
+| 2020-06-09    | 1256                |            |
+| 2020-06-13    | 4833                |            |
+| 2020-06-14    | 3312                |            |
+| 2020-06-20    | 6361                |            |
+| 2020-06-21    | 3304                |            |
+| 2020-06-22    | 9005                |            |
+| 2020-07-01    | 6096                |            |
+| 2020-07-02    | 4820                |            |
+| 2020-07-19    | 5092                |            |
+| 2020-08-21    | 8066                |            |
+| 2020-08-30    | 4876                |            |
+| 2020-09-01    | 3835                |            |
+| 2020-09-05    | 2403                |            | 
+| 2020-10-17    | 11459               |            |
+| 2020-10-18    | 8224                |            |
+| 2020-10-20    | 13822               |            |
+| 2020-10-21    | 14144               |            |
+| 2020-10-22    | 13994               |            | 
+| 2020-10-23    | 12619               |            |
+| 2020-10-24    | 1934                |            |
+| 2020-10-25    | 7175                |            |
+| 2020-10-27    | 3815                |            |
+| 2020-10-28    | 14428               |            |
+| 2020-10-30    | 12551               |            |
+| 2020-10-31    | 14549               |            |
+| 2020-11-01    | 11236               |            |
 | 2020-11-06    | 15334               | 13.4       |
+| 2020-11-07    | 8621                |            | 
 | 2020-11-08    | 11681               |            |
 | 2020-11-09    | 5085                |            |
 | 2020-11-10    | 13162               |            | 
@@ -102,4 +128,4 @@ My current personal best is:
 
 *Rows with data in the Kilometres column were taken from Pebble Health.* 
 
-*Rows with blank Kilometres column were taken from Apple Health except where there were obvious discrepancies between the two indicating that my Pebble was either not worn for that particular excursion or did not sync data to the app correctly.*
+*Rows with blank Kilometres column were taken from Apple Health or Gadgetbridge except where there were obvious discrepancies between the two indicating that my Pebble was either not worn for that particular excursion or did not sync data to the app correctly.*
