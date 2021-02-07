@@ -100,4 +100,4 @@ My current personal best is:
 | 2021-02-04    | 10309               |            |
 | 2021-02-06    | 3092                | 2.7        |
 
-*Rows with data in the Kilometre column were taken from Pebble Health; Rows with blank Kilometre column were taken from Apple Health except where there were obvious discrepancies between the two indicating that my Pebble was either not warn for that particular excursion or did not sync data to the app correctly.*
+*Rows with data in the Kilometres column were taken from Pebble Health; Rows with blank Kilometres column were taken from Apple Health except where there were obvious discrepancies between the two indicating that my Pebble was either not warn for that particular excursion or did not sync data to the app correctly.*
