@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-02-06T17:02:07-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Lerna</title><subtitle>Hello and welcome to my GitHub Page! This will be an ongoing work in progress which will allow me to share my thoughts, ramblings, poetry, and any other projects I may be working on.</subtitle><entry><title type="html">Walk Your Worries Away</title><link href="http://localhost:4000/jekyll/update/2021/02/06/walk-your-worries-away.html" rel="alternate" type="text/html" title="Walk Your Worries Away" /><published>2021-02-06T00:00:00-05:00</published><updated>2021-02-06T00:00:00-05:00</updated><id>http://localhost:4000/jekyll/update/2021/02/06/walk-your-worries-away</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/02/06/walk-your-worries-away.html">&lt;h1 id=&quot;walking&quot;&gt;Walking…&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-02-06T20:28:39-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Lerna</title><subtitle>Hello and welcome to my GitHub Page! This will be an ongoing work in progress which will allow me to share my thoughts, ramblings, poetry, and any other projects I may be working on.</subtitle><entry><title type="html">Walk Your Worries Away</title><link href="http://localhost:4000/jekyll/update/2021/02/06/walk-your-worries-away.html" rel="alternate" type="text/html" title="Walk Your Worries Away" /><published>2021-02-06T00:00:00-05:00</published><updated>2021-02-06T00:00:00-05:00</updated><id>http://localhost:4000/jekyll/update/2021/02/06/walk-your-worries-away</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/02/06/walk-your-worries-away.html">&lt;h1 id=&quot;walking&quot;&gt;Walking…&lt;/h1&gt;
 
 &lt;p&gt;I recently discovered walking as an excellent hobby and a great way to stay in shape. It helps immensely with both my physical and mental health. I typically walk between 10-30 kilometres in a single day. I wanted to start tracking my progress as much as possible since my Pebble and Apple Health are not as reliable as I would like in maintaining this data over an extended period of time.&lt;/p&gt;
 
@@ -141,6 +141,11 @@
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
+      &lt;td&gt;12-27-2021&lt;/td&gt;
+      &lt;td&gt;10856&lt;/td&gt;
+      &lt;td&gt;9.5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
       &lt;td&gt;01-14-21&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -171,15 +176,15 @@
 &lt;h1 id=&quot;google&quot;&gt;Google&lt;/h1&gt;
 
 &lt;p&gt;A good place to start is to reduce or eliminate your dependency on Google as they are known to be one of the biggest offenders regarding data privacy. Most of us are guilty of over-using their services, especially those of you using Android as your mobile platform of choice. This can be a difficult one but every little bit helps. If you find it impossible to stop using Google as a search engine at the very least consider visiting the following URL and disabling the three options for 
-&lt;a href=&quot;https://myactivity.google.com/myactivity?pli=1&quot; onclick=&quot;window.open('https://myactivity.google.com/myactivity?pli=1', '_self');&quot;&gt;
+&lt;a href=&quot;https://myactivity.google.com/myactivity?pli=1&quot; onclick=&quot;window.open(&apos;https://myactivity.google.com/myactivity?pli=1&apos;, &apos;_self&apos;);&quot;&gt;
 Web &amp;amp; Web Activity, Location History, and YouTube History 
-&lt;/a&gt;. It is also worth considering signing out of your Google account when performing searches or doing so in Incognito mode to limit the amount of tracking you are subjected to. Consider using &lt;a href=&quot;https://duckduckgo.com&quot; onclick=&quot;window.open('https://duckduckgo.com', '_self');&quot;&gt;
+&lt;/a&gt;. It is also worth considering signing out of your Google account when performing searches or doing so in Incognito mode to limit the amount of tracking you are subjected to. Consider using &lt;a href=&quot;https://duckduckgo.com&quot; onclick=&quot;window.open(&apos;https://duckduckgo.com&apos;, &apos;_self&apos;);&quot;&gt;
 DuckDuckGo&lt;/a&gt; as a privacy-respecting alternative to Google either via their website or by changing the default search engine in your browser.&lt;/p&gt;
 
 &lt;h1 id=&quot;email&quot;&gt;Email&lt;/h1&gt;
 
-&lt;p&gt;Gmail can also be a difficult one to let go of but there are plenty of alternatives available these days. The two I personally use are &lt;a href=&quot;https://webmail.vivaldi.net&quot; onclick=&quot;window.open('https://webmail.vivaldi.net', '_self');&quot;&gt;
-Vivaldi Webmail&lt;/a&gt; and &lt;a href=&quot; https://mail.tutanota.com&quot; onclick=&quot;window.open('https://mail.tunanota.com', '_self');&quot;&gt;
+&lt;p&gt;Gmail can also be a difficult one to let go of but there are plenty of alternatives available these days. The two I personally use are &lt;a href=&quot;https://webmail.vivaldi.net&quot; onclick=&quot;window.open(&apos;https://webmail.vivaldi.net&apos;, &apos;_self&apos;);&quot;&gt;
+Vivaldi Webmail&lt;/a&gt; and &lt;a href=&quot; https://mail.tutanota.com&quot; onclick=&quot;window.open(&apos;https://mail.tunanota.com&apos;, &apos;_self&apos;);&quot;&gt;
 Tutanota&lt;/a&gt;. Vivaldi Webmail offers 5GB of free storage, and Tutanota offers 1GB which should be plenty for most users. They both offer end-to-end encryption of messages if you need to send email with an added layer of security. Encrypting and decrypting email messages is beyond the scope of this article, however. Both services also do not load images by default. This is because many organizations now use tracking pixels (invisible 1X1 images embedded in email messages) to notify them as soon as you read an email message.&lt;/p&gt;
 
 &lt;h1 id=&quot;browsing&quot;&gt;Browsing&lt;/h1&gt;
