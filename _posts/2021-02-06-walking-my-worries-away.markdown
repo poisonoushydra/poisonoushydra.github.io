@@ -7,7 +7,7 @@ categories: jekyll update
 
 # Walking Journal
 
-I have never been a gym person and have always found that I need to exercise organically. I recently discovered walking as a great way to stay in shape. It helps immensely with both my physical and mental health. I wanted to start journalling my progress as much as possible since my Pebble and Apple Health are not as reliable as I would like in maintaining this data over an extended period of time. 
+I have never been a gym person and have always found that I need to exercise organically. I recently discovered walking as a great way to stay in shape. It helps immensely with both my physical and mental health. I wanted to start journaling my progress as much as possible since my Pebble and Apple Health are not as reliable as I would like in maintaining this data over an extended period of time. 
 
 My current personal best is: 
 
