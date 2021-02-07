@@ -128,4 +128,4 @@ My current personal best is:
 
 *Rows with data in the Kilometres column were taken from Pebble Health.* 
 
-*Rows with blank Kilometres column were taken from Apple Health or Gadgetbridge except where there were obvious discrepancies between the two indicating that my Pebble was either not worn for that particular excursion or did not sync data to the app correctly.*
+*Rows with a blank Kilometres column were taken from Apple Health or Gadgetbridge except where there were obvious discrepancies between the two indicating that my Pebble was either not worn for that particular excursion or did not sync data to the app correctly.*
