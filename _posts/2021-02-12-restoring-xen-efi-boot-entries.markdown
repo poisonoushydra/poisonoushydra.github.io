@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Restoring Xen EFI Boot Entries"
-date:   2021-02-06
+date:   2021-02-12
 categories: jekyll update
 ---
 
