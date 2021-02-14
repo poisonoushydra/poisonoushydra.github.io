@@ -1,4 +1,74 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-02-12T10:23:18-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Lerna</title><subtitle>Hello and welcome to my GitHub Page! This will be an ongoing work in progress which will allow me to share my thoughts, ramblings, poetry, and any other projects I may be working on.</subtitle><entry><title type="html">Walking Journal</title><link href="http://localhost:4000/jekyll/update/2021/02/06/walking-my-worries-away.html" rel="alternate" type="text/html" title="Walking Journal" /><published>2021-02-06T00:00:00-05:00</published><updated>2021-02-06T00:00:00-05:00</updated><id>http://localhost:4000/jekyll/update/2021/02/06/walking-my-worries-away</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/02/06/walking-my-worries-away.html">&lt;h1 id=&quot;walking-journal&quot;&gt;Walking Journal&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-02-13T22:08:27-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Lerna</title><subtitle>Hello and welcome to my GitHub Page! This will be an ongoing work in progress which will allow me to share my thoughts, ramblings, poetry, and any other projects I may be working on.</subtitle><entry><title type="html">Restoring Xen EFI Boot Entries</title><link href="http://localhost:4000/jekyll/update/2021/02/12/restoring-xen-efi-boot-entries.html" rel="alternate" type="text/html" title="Restoring Xen EFI Boot Entries" /><published>2021-02-12T00:00:00-05:00</published><updated>2021-02-12T00:00:00-05:00</updated><id>http://localhost:4000/jekyll/update/2021/02/12/restoring-xen-efi-boot-entries</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/02/12/restoring-xen-efi-boot-entries.html">&lt;h1 id=&quot;restoring-xen-efi-boot-entries&quot;&gt;Restoring Xen EFI Boot Entries&lt;/h1&gt;
+
+&lt;p&gt;I have experienced several recent occurences of my EFI “forgetting” the boot entries for my Xen Hypervisor (based on Alpine Linux).&lt;/p&gt;
+
+&lt;p&gt;Alpine is a fantastic distribution but their documentation is somewhat lacking and often outdated. This means I am continually placed in the position of having to dig up the steps I have taken in order to restore the boot entries which is generally a more tedious process than actually restoring them. To that end I have decided to document the procedure here so that I (and others) can benefit from these instructions in the future.&lt;/p&gt;
+
+&lt;p&gt;Without further ado…&lt;/p&gt;
+
+&lt;h1 id=&quot;the-process&quot;&gt;The Process&lt;/h1&gt;
+
+&lt;p&gt;We begin by using balenaEtcher to write the latest Alpine Xen .iso image to a USB stick. Please note that attempting to restore the GRUB bootloader using the Standard or Extended .iso downloads seems to fail (possibly due to a mismatched kernel version).&lt;/p&gt;
+
+&lt;p&gt;Once the system has booted from the flash drive the following commands are issued:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;fdisk -l
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This will show a list of disks / partitions present on the system in an effort to identify which one contains the Xen Hypervisor installation (in my case it happens to be &lt;em&gt;/dev/sdd&lt;/em&gt;).&lt;/p&gt;
+
+&lt;p&gt;Next we issue:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mount /dev/sdd3 /mnt
+mount /dev/sdd1 /mnt/boot
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;to mount the root and ESP partitions respectively.&lt;/p&gt;
+
+&lt;p&gt;We also need to bind mount several key directories into our mounted system otherwise the later commands will fail:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mount -o bind /proc /mnt/proc
+mount -o bind /dev /mnt/dev
+mount -o bind /dev/pts /mnt/dev/pts
+mount -o bind /sys /mnt/sys
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;With everything mounted we are free to chroot into &lt;em&gt;/mnt&lt;/em&gt; with the following command:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chroot /mnt /bin/ash 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;noting that the &lt;em&gt;/bin/ash&lt;/em&gt; variable can be omitted or changed depending on your shell of choice.&lt;/p&gt;
+
+&lt;p&gt;Now that we are inside the mounted chroot environment we can begin restoring the missing EFI entries, beginning with:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;grub-install --target=x86_64-efi --efi-directory=/mnt/boot --bootloader-id=alpine
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Feel free to replace the &lt;em&gt;–bootloader-id=&lt;/em&gt; variable with whatever name you would like to appear in your system’s boot menu.&lt;/p&gt;
+
+&lt;p&gt;The command should notify you that it was completed without errors.&lt;/p&gt;
+
+&lt;p&gt;Next we issue:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;grub-mkconfig -o /boot/grub/grub.cfg
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;to make sure any options we have configured in &lt;em&gt;/etc/default/grub&lt;/em&gt; are passed to the bootloader upon rebooting. The &lt;em&gt;grub-mkconfig&lt;/em&gt; command should also notify us that it was completed without errors.&lt;/p&gt;
+
+&lt;p&gt;We can use the command:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;efibootmgr
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;to verify that the EFI boot entry was written successfully.&lt;/p&gt;
+
+&lt;p&gt;Next we issue the standard command:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;reboot
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;with our fingers crossed, selecting the newly created &lt;em&gt;alpine&lt;/em&gt; entry from our motherboard’s boot menu.&lt;/p&gt;
+
+&lt;p&gt;If everything went smoothly our Xen Hypervisor GRUB menu should appear shortly and subsequently boot our Xen dom0 instance!&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Restoring Xen EFI Boot Entries</summary></entry><entry><title type="html">Walking Journal</title><link href="http://localhost:4000/jekyll/update/2021/02/06/walking-my-worries-away.html" rel="alternate" type="text/html" title="Walking Journal" /><published>2021-02-06T00:00:00-05:00</published><updated>2021-02-06T00:00:00-05:00</updated><id>http://localhost:4000/jekyll/update/2021/02/06/walking-my-worries-away</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/02/06/walking-my-worries-away.html">&lt;h1 id=&quot;walking-journal&quot;&gt;Walking Journal&lt;/h1&gt;
 
 &lt;p&gt;I have never been a gym person and have always found that I need to exercise organically. I recently discovered walking as a great way to stay in shape. It helps immensely with both my physical and mental health. I wanted to start journaling my progress as much as possible since my Pebble and Apple Health are not as reliable as I would like in maintaining this data over an extended period of time.&lt;/p&gt;
 
@@ -570,77 +640,7 @@
 
 &lt;p&gt;&lt;em&gt;Rows with data in the Kilometres column were taken from Pebble Health.&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;Rows with a blank Kilometres column were taken from Apple Health or Gadgetbridge except where there were obvious discrepancies between the two indicating that my Pebble was either not worn for that particular excursion or did not sync data to the app correctly.&lt;/em&gt;&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Walking Journal</summary></entry><entry><title type="html">Restoring Xen EFI Boot Entries</title><link href="http://localhost:4000/jekyll/update/2021/02/06/restoring-xen-efi-boot-entries.html" rel="alternate" type="text/html" title="Restoring Xen EFI Boot Entries" /><published>2021-02-06T00:00:00-05:00</published><updated>2021-02-06T00:00:00-05:00</updated><id>http://localhost:4000/jekyll/update/2021/02/06/restoring-xen-efi-boot-entries</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/02/06/restoring-xen-efi-boot-entries.html">&lt;h1 id=&quot;restoring-xen-efi-boot-entries&quot;&gt;Restoring Xen EFI Boot Entries&lt;/h1&gt;
-
-&lt;p&gt;I have experienced several recent occurences of my EFI “forgetting” the boot entries for my Xen Hypervisor (based on Alpine Linux).&lt;/p&gt;
-
-&lt;p&gt;Alpine is a fantastic distribution but their documentation is somewhat lacking and often outdated. This means I am continually placed in the position of having to dig up the steps I have taken in order to restore the boot entries which is generally a more tedious process than actually restoring them. To that end I have decided to document the procedure here so that I (and others) can benefit from these instructions in the future.&lt;/p&gt;
-
-&lt;p&gt;Without further ado…&lt;/p&gt;
-
-&lt;h1 id=&quot;the-process&quot;&gt;The Process&lt;/h1&gt;
-
-&lt;p&gt;I begin by using balenaEtcher to write the latest Alpine Xen .iso image to a USB stick. Please note that attempting to restore the GRUB bootloader using the Standard or Extended .iso downloads seems to fail (possibly due to a mismatched kernel version).&lt;/p&gt;
-
-&lt;p&gt;Once the system has booted from the flash drive the following commands are issued:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;fdisk -l
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;This will show a list of disks / partitions present on the system in an effort to identify which one contains the Xen Hypervisor installation (in my case it happens to be &lt;em&gt;/dev/sdd&lt;/em&gt;).&lt;/p&gt;
-
-&lt;p&gt;Next we issue:&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mount /dev/sdd3 /mnt
-mount /dev/sdd1 /mnt/boot
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;to mount the root and ESP partitions respectively.&lt;/p&gt;
-
-&lt;p&gt;We also need to bind mount several key directories into our mounted system otherwise the later commands will fail:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mount -o bind /proc /mnt/proc
-mount -o bind /dev /mnt/dev
-mount -o bind /dev/pts /mnt/dev/pts
-mount -o bind /sys /mnt/sys
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;With everything mounted we are free to chroot into &lt;em&gt;/mnt&lt;/em&gt; with the following command:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chroot /mnt /bin/ash 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;noting that the &lt;em&gt;/bin/ash&lt;/em&gt; variable can be omitted or changed depending on your shell of choice.&lt;/p&gt;
-
-&lt;p&gt;Now that we are inside the mounted chroot environment we can begin restoring the missing EFI entries, beginning with:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;grub-install --target=x86_64-efi --efi-directory=/mnt/boot --bootloader-id=alpine
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Feel free to replace the &lt;em&gt;–bootloader-id=&lt;/em&gt; variable with whatever name you would like to appear in your system’s boot menu.&lt;/p&gt;
-
-&lt;p&gt;The command should notify you that it was completed without errors.&lt;/p&gt;
-
-&lt;p&gt;Next we issue:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;grub-mkconfig -o /boot/grub/grub.cfg
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;to make sure any options we have configured in &lt;em&gt;/etc/default/grub&lt;/em&gt; are passed to the bootloader upon rebooting. The &lt;em&gt;grub-mkconfig&lt;/em&gt; command should also notify us that it was completed without errors.&lt;/p&gt;
-
-&lt;p&gt;We can use the command:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;efibootmgr
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;to verify that the EFI boot entry was written successfully.&lt;/p&gt;
-
-&lt;p&gt;Next we issue the standard command:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;reboot
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;with our fingers crossed, selecting the newly created &lt;em&gt;alpine&lt;/em&gt; entry from our motherboard’s boot menu.&lt;/p&gt;
-
-&lt;p&gt;If everything went smoothly our Xen Hypervisor GRUB menu should appear shortly and subsequently boot our Xen dom0 instance!&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Restoring Xen EFI Boot Entries</summary></entry><entry><title type="html">International Data Privacy Day</title><link href="http://localhost:4000/jekyll/update/2021/01/28/international-data-privacy-day.html" rel="alternate" type="text/html" title="International Data Privacy Day" /><published>2021-01-28T00:00:00-05:00</published><updated>2021-01-28T00:00:00-05:00</updated><id>http://localhost:4000/jekyll/update/2021/01/28/international-data-privacy-day</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/01/28/international-data-privacy-day.html">&lt;p&gt;Today is International Data Privacy Day so I would like to take this opportunity to share some information with my fellow Internet users in hopes that it will help some of you become more knowledgeable regarding the types of data which are being harvested from your devices, for the most part without your knowledge or consent. I will try to make this as accessible as possible by using terms and concepts that a layperson can easily grasp but please feel free to comment or message me privately if you have any questions or concerns that are not covered by this post.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Rows with a blank Kilometres column were taken from Apple Health or Gadgetbridge except where there were obvious discrepancies between the two indicating that my Pebble was either not worn for that particular excursion or did not sync data to the app correctly.&lt;/em&gt;&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Walking Journal</summary></entry><entry><title type="html">International Data Privacy Day</title><link href="http://localhost:4000/jekyll/update/2021/01/28/international-data-privacy-day.html" rel="alternate" type="text/html" title="International Data Privacy Day" /><published>2021-01-28T00:00:00-05:00</published><updated>2021-01-28T00:00:00-05:00</updated><id>http://localhost:4000/jekyll/update/2021/01/28/international-data-privacy-day</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/01/28/international-data-privacy-day.html">&lt;p&gt;Today is International Data Privacy Day so I would like to take this opportunity to share some information with my fellow Internet users in hopes that it will help some of you become more knowledgeable regarding the types of data which are being harvested from your devices, for the most part without your knowledge or consent. I will try to make this as accessible as possible by using terms and concepts that a layperson can easily grasp but please feel free to comment or message me privately if you have any questions or concerns that are not covered by this post.&lt;/p&gt;
 
 &lt;h1 id=&quot;google&quot;&gt;Google&lt;/h1&gt;
 

@@ -15,7 +15,7 @@ Without further ado...
 
 # The Process
 
-I begin by using balenaEtcher to write the latest Alpine Xen .iso image to a USB stick. Please note that attempting to restore the GRUB bootloader using the Standard or Extended .iso downloads seems to fail (possibly due to a mismatched kernel version).
+We begin by using balenaEtcher to write the latest Alpine Xen .iso image to a USB stick. Please note that attempting to restore the GRUB bootloader using the Standard or Extended .iso downloads seems to fail (possibly due to a mismatched kernel version).
 
 Once the system has booted from the flash drive the following commands are issued:
 
