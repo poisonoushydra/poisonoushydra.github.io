@@ -3,7 +3,7 @@ layout: post
 title:  "Walking Journal"
 date:   2021-02-06
 categories: jekyll update
-image: /_site/assets/boots_14.png
+image: assets/boots_14.png
 ---
 
 # Walking Journal
